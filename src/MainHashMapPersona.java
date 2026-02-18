@@ -1,13 +1,58 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+/*3. Crea un HashMap donde la clave sea el nombre de una persona y el valor su
+edad. Añade varios elementos y muestra la edad de una persona concreta.
+(MainHashMapPersona)*/
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class MainHashMapPersona {
+
+    public static void main(String[] args) {
+        Map<String, Integer> personas = new HashMap<>();
+        Scanner sc = new Scanner(System.in);
+
+        boolean continuar = true;
+
+        while (continuar) {
+            System.out.print("Introduce el nombre (escribe 'salir' si has acabado): ");
+            String nombre = sc.nextLine();
+
+            if (nombre.equalsIgnoreCase("salir")) {
+                continuar = false;
+            } else {
+
+                System.out.print("Introduce la edad;  ");
+                String entradaEdad = sc.nextLine();
+
+                if (entradaEdad.matches("\\d+")) {
+                    int edad = Integer.parseInt(entradaEdad);
+                    personas.put(nombre, edad);
+                } else {
+                    System.out.println("Edad no válida. Registro saltado.");
+                }
+            }
+        }
+
+
+        // Búsqueda
+        boolean buscando = true;
+        while (buscando) {
+            System.out.print("Introduce nombre a buscar (o 'salir'): ");
+            String busqueda = sc.nextLine();
+
+            if (busqueda.equalsIgnoreCase("salir")) {
+                buscando = false;
+            } else {
+                if (personas.containsKey(busqueda)) {
+                    System.out.println("Resultado: " + busqueda + " tiene " + personas.get(busqueda) + " años.");
+                } else {
+                    System.out.println(busqueda + " no esta registrado.");
+                }
+            }
+        }
+
+        sc.close();
+
+    }
 }
