@@ -1,3 +1,3 @@
-Ejercicio 1, archivo BC3 e, REALIZADO EN CLASE Enunciado; 1. Crea un ArrayList de nombres y realiza operaciones de añadir, eliminar y 
-mostrar todos los elementos. (MainArrayListNombre)
-
+Ejercicio 3, archivo BC3 e, REALIZADO EN CLASE Enunciado; 3. Crea un HashMap donde la clave sea el nombre de una persona y el valor su 
+edad. Añade varios elementos y muestra la edad de una persona concreta.
+(MainHashMapPersona)
